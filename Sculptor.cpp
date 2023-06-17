@@ -3,14 +3,14 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "Sculptor.h"
+#include "sculptor.h"
 
 
 // Constructor
 Sculptor :: Sculptor(int _nx, int _ny, int _nz){
-    nx = _nx;
-    ny = _ny;
-    nz = _nz;
+    this->nx = _nx;
+    this->ny = _ny;
+    this->nz = _nz;
     r = g = b = a = 0.5;
 
     // Alocação Matriz 3D
@@ -70,117 +70,18 @@ void Sculptor ::cutVoxel(int mx, int my, int mz){
     v[mx][my][mz].show = false;
 }
 
-// Ativa Cubo
-void Sculptor ::putBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for (int i = x0; i < x1; i++){
-        for (int j = y0; j < y1; j++){
-            for (int k = z0; k < z1; k++){
-                v[i][j][k].show = true;
-                v[i][j][k].r = r;
-                v[i][j][k].g = g;
-                v[i][j][k].b = b;
-                v[i][j][k].a = a;
-            }
-        }
-    }
+int Sculptor::getDimx(){
+    return nx;
 }
-
-// Desativa Cubo
-void Sculptor ::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for (int i = x0; i < x1; i++){
-        for (int j = y0; j < y1; j++){
-            for (int k = z0; k < z1; k++){
-                v[i][j][k].show = false;
-            }
-        }
-    }
+int Sculptor::getDimy(){
+    return ny;
 }
-
-// Ativa Esfera
-void Sculptor ::putSphere(int x, int y, int z, int r){
-    double x2, y2, z2;
-    int rSquared = r*r;
-
-    for (int i = 0; i < nx; i++){
-        for (int j = 0; j < ny; j++){
-            for (int k = 0; k < nz; k++){
-                x2 = (double)(i - x) * (double)(i - x);
-                y2 = (double)(j - y) * (double)(j - y);
-                z2 = (double)(k - z) * (double)(k - z);
-
-                if ((x2 + y2 + z2) < (rSquared)){
-                    v[i][j][k].show = true;
-                    v[i][j][k].r = this->r;
-                    v[i][j][k].g = this->g;
-                    v[i][j][k].b = this->b;
-                    v[i][j][k].a = this->a;
-                }
-            }
-        }
-    }
-}
-
-// Desativa Esfera
-void Sculptor ::cutSphere(int x_, int y_, int z_, int r_){
-    double x02, y02, z02;
-    int rSquared = r_ * r_;
-
-    for (int i = 0; i < nx; i++){
-        for (int j = 0; j < ny; j++){
-            for (int k = 0; k < nz; k++){
-                x02 = (double)(i - x_) * (double)(i - x_);
-                y02 = (double)(j - y_) * (double)(j - y_);
-                z02 = (double)(k - z_) * (double)(k - z_);
-
-                if ((x02 + y02 + z02) < rSquared){
-                    v[i][j][k].show = false;
-                }
-            }
-        }
-    }
-}
-
-// Ativa Elipsoide
-void Sculptor ::putEllipsoid(int xc, int yc, int zc, int rx, int ry, int rz){
-    for (int i = 0; i < nx; i++){
-        for (int j = 0; j < ny; j++){
-            for (int k = 0; k < nz; k++){
-                double x0 = ((double)(i - xc) * (double)(i - xc)) / (rx * rx);
-                double y0 = ((double)(j - yc) * (double)(j - yc)) / (ry * ry);
-                double z0 = ((double)(k - zc) * (double)(k - zc)) / (rz * rz);
-
-                if ((x0 + y0 + z0) < 1){
-                    v[i][j][k].show = true;
-                    v[i][j][k].r = r;
-                    v[i][j][k].g = g;
-                    v[i][j][k].b = b;
-                    v[i][j][k].a = a;
-                }
-            }
-        }
-    }
-}
-
-// Desativa Elipsoide
-void Sculptor ::cutEllipsoid(int cx, int cy, int cz, int rx0, int ry0, int rz0){
-    for (int i = 0; i < nx; i++){
-        for (int j = 0; j < ny; j++){
-            for (int k = 0; k < nz; k++){
-
-                double d1 = ((double)(i - cx) * (double)(i - cx)) / (rx0 * rx0);
-                double d2 = ((double)(j - cy) * (double)(j - cy)) / (ry0 * ry0);
-                double d3 = ((double)(k - cz) * (double)(k - cz)) / (rz0 * rz0);
-
-                if ((d1 + d2 + d3) < 1){
-                    v[i][j][k].show = false;
-                }
-            }
-        }
-    }
+int Sculptor::getDimz(){
+    return nz;
 }
 
 // Criacao do arquivo .OFF
-void Sculptor ::writeOFF(const char *filename){
+void Sculptor::writeOFF(char *filename){
     std::ofstream fout;
     fixed(fout);
 

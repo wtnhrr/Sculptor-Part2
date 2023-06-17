@@ -1,16 +1,16 @@
-#include "PutSphere.h"
+#include "putSphere.h"
 
-PutSphere::PutSphere(int xcenter_, int ycenter_, int zcenter_, int radius_, float r_, float g_, float b_, float a_){
-    this -> xcenter = xcenter_;
-    this -> ycenter = ycenter_;
-    this -> zcenter = zcenter_;
-    this -> radius  = radius_;
+putSphere::putSphere(int xcenter, int ycenter, int zcenter, int radius, float r, float g, float b, float a){
+    this -> xcenter = xcenter;
+    this -> ycenter = ycenter;
+    this -> zcenter = zcenter;
+    this -> radius  = radius;
 
-    this -> r  = r_;  this -> g  = g_ ; this -> b = b_; this -> a = a_;
+    this -> r  = r;  this -> g  = g ; this -> b = b; this -> a = a;
 }
 
-void PutSphere::draw(Sculptor &sculptor){
-    sculptor.setColor(r, g, b, a);
+void putSphere::draw(Sculptor &s){
+    s.setColor(r, g, b, a);
 
     for(int x = xcenter - radius; x < xcenter + radius; x++){
         for(int y = ycenter - radius; y < ycenter + radius; y++){
@@ -20,7 +20,7 @@ void PutSphere::draw(Sculptor &sculptor){
                 ((z-zcenter)/2.0) * ((z-zcenter)/2.0 ) / ((radius/2.0)*(radius/2.0));
                 
                 if( distance < 1.0){
-                    sculptor.putVoxel(x, y, z);
+                    s.putVoxel(x, y, z);
                 }
             }
         }

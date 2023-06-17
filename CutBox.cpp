@@ -1,16 +1,16 @@
-#include "CutBox.h"
+#include "cutBox.h"
 
-CutBox::CutBox(int x0_, int x1_, int y0_, int y1_, int z0_, int z1_){
-    this -> x0 = x1_, this -> x1 = x1_;
-    this -> y0 = y0_, this -> y1 = y1_;
-    this -> z0 = z0_, this -> z1 = z1_;
+cutBox::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
+    this -> x0 = x1, this -> x1 = x1;
+    this -> y0 = y0, this -> y1 = y1;
+    this -> z0 = z0, this -> z1 = z1;
 }
 
-void CutBox::draw(Sculptor &sculptor){
+void cutBox::draw(Sculptor &s){
     for(int i = x0; i < x1; i++){
         for(int j = y0; j < y1; j++){
             for(int k = z0; k < z1; k++){
-                sculptor.cutVoxel(i, j, k);
+                s.cutVoxel(i, j, k);
             }
         }
     }

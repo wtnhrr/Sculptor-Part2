@@ -1,16 +1,15 @@
-#ifndef CUT_SPHERE_H
-#define CUT_SPHERE_H
+#ifndef CUTSPHERE_H
+#define CUTSPHERE_H
 
-#include "FiguraGeometrica.h"
+#include "figurageometrica.h"
 
-class CutSphere:public FiguraGeometrica{
+class cutSphere : public FiguraGeometrica{
     int xcenter, ycenter, zcenter, radius;
 
-    public:
-        CutSphere(int xcenter_, int ycenter_, int zcenter_, int radius_);
-        ~CutSphere(){};
-
-        void draw(Sculptor &sculptor);
+public:
+    cutSphere(int xcenter, int ycenter, int zcenter, int radius);
+    void draw(Sculptor &s);
+    ~cutSphere(){};
 };
 
-#endif // CUT_SPHERE_H
+#endif // CUTSPHERE_H

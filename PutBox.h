@@ -1,18 +1,15 @@
-#ifndef PUT_BOX_H
-#define PUT_BOX_H
+#ifndef PUTBOX_H
+#define PUTBOX_H
 
-#include "FiguraGeometrica.h"
-  
+#include "figurageometrica.h"
 
-class PutBox:public FiguraGeometrica{
-
+class putBox : public FiguraGeometrica{
     int x0, x1, y0, y1, z0, z1;
 
-    public:
-        PutBox(int x0_, int x1_, int y0_, int y1_, int z0_, int z1_, float r_, float g_, float b_, float a_);
-        ~PutBox(){};
-
-        void draw(Sculptor &sculptor);
+public:
+    putBox(int x0, int x1, int y0, int y1, int z0, int z1, float r, float g, float b, float a);
+    void draw(Sculptor &sculptor);
+    ~putBox(){};
 };
 
-#endif // PUT_BOX_H
+#endif // PUTBOX_H

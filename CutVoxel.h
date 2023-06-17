@@ -1,16 +1,15 @@
-#ifndef CUT_VOXEL_H
-#define CUT_VOXEL_H
+#ifndef CUTVOXEL_H
+#define CUTVOXEL_H
 
-#include "FiguraGeometrica.h"
+#include "figurageometrica.h"
 
-class CutVoxel:public FiguraGeometrica{
+class cutVoxel : public FiguraGeometrica{
     int x, y, z;
 
-    public:
-        CutVoxel(int x_, int y_, int z_);
-        ~CutVoxel(){};
-
-        void draw(Sculptor &sculptor);
+public:
+    cutVoxel(int x, int y, int z);
+    ~cutVoxel(){};
+    void draw(Sculptor &s);
 };
 
-#endif // CUT_VOXEL_H
+#endif // CUTVOXEL_H

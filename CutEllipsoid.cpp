@@ -1,16 +1,16 @@
-#include "CutEllipsoid.h"
+#include "cutEllipsoid.h"
 
-CutEllipsoid::CutEllipsoid(int xcenter_, int ycenter_, int zcenter_, int rx_, int ry_, int rz_){
-    this -> xcenter = xcenter_;
-    this -> ycenter = ycenter_;
-    this -> zcenter = zcenter_;
-    this -> rx = rx_; 
-    this -> ry = ry_;
-    this -> rz = rz_;
+cutEllipsoid::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
+    this -> xcenter = xcenter;
+    this -> ycenter = ycenter;
+    this -> zcenter = zcenter;
+    this -> rx = rx; 
+    this -> ry = ry;
+    this -> rz = rz;
 }
 
-void CutEllipsoid::draw(Sculptor &sculptor){
-    sculptor.setColor(r, g, b, a);
+void cutEllipsoid::draw(Sculptor &s){
+    s.setColor(r, g, b, a);
 
     for(int x = xcenter - rx; x < xcenter + rx; x++){
         for(int y = ycenter - ry; y < ycenter + ry; y++){
@@ -20,7 +20,7 @@ void CutEllipsoid::draw(Sculptor &sculptor){
                 ((z-zcenter)/2.0) * ((z-zcenter)/2.0 ) / ((rz/2.0)*(rz/2.0));
 
                 if((distance <= 1)){
-                    sculptor.cutVoxel(x, y, z);
+                    s.cutVoxel(x, y, z);
                 }
             }
         }

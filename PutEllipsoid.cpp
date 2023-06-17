@@ -1,18 +1,23 @@
-#include "PutEllipsoid.h"
+#include "putEllipsoid.h"
 
-PutEllipsoid::PutEllipsoid(int xcenter_, int ycenter_, int zcenter_, int rx_, int ry_, int rz_, float r_, float g_, float b_, float a_){
-    this -> xcenter = xcenter_;
-    this -> ycenter = ycenter_;
-    this -> zcenter = zcenter_;
-    this -> rx = rx_; 
-    this -> ry = ry_;
-    this -> rz = rz_;
+putEllipsoid::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz, float r, float g, float b, float a){
+    this -> xcenter = xcenter;
+    this -> ycenter = ycenter;
+    this -> zcenter = zcenter;
+    this -> rx = rx; 
+    this -> ry = ry;
+    this -> rz = rz;
 
-    this -> r  = r_;  this -> g  = g_ ; this -> b = b_; this -> a = a_;
+    this -> r  = r;  this -> g  = g ; this -> b = b; this -> a = a;
 }
 
-void PutEllipsoid::draw(Sculptor &sculptor){
-  sculptor.setColor(r, g, b, a);
+putEllipsoid::~putEllipsoid(){
+
+}
+
+void putEllipsoid::draw(Sculptor &s){
+  s.setColor(r, g, b, a);
+  
   for(int x = xcenter - rx; x < xcenter + rx; x++){
     for(int y = ycenter - ry; y < ycenter + ry; y++){
       for(int z = zcenter - rz; z < zcenter + rz; z++){
@@ -21,7 +26,7 @@ void PutEllipsoid::draw(Sculptor &sculptor){
                          ((z-zcenter)/2.0) * ((z-zcenter)/2.0 ) / ((rz/2.0)*(rz/2.0));
 
         if((distance <= 1)){
-          sculptor.putVoxel(x, y, z);
+          s.putVoxel(x, y, z);
         }
       }
     }

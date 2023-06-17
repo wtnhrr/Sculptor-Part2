@@ -1,11 +1,11 @@
-#include "PutVoxel.h"
+#include "putVoxel.h"
 
-PutVoxel::PutVoxel(int x_, int y_, int z_, float r_, float g_, float b_, float a_){
-  this -> x = x_; this -> y = y_; this -> z = z_;
-  this -> r = r_; this -> g = g_; this -> b = b_; this -> a = a_;
+putVoxel::putVoxel(int x, int y, int z, float r, float g, float b, float a){
+  this -> x = x; this -> y = y; this -> z = z;
+  this -> r = r; this -> g = g; this -> b = b; this -> a = a;
 }
 
-void PutVoxel::draw(Sculptor &sculptor){
-  sculptor.setColor(r, g, b, a);
-  sculptor.putVoxel(x, y, z);
+void putVoxel::draw(Sculptor &s){
+  s.setColor(r, g, b, a);
+  s.putVoxel(x, y, z);
 }

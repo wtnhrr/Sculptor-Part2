@@ -3,21 +3,21 @@
 
 #include <vector>
 #include <string>
+
 #include "figurageometrica.h"
-#include "Sculptor.h"
+#include "sculptor.h"
 
 class Leitor{
     int dimx, dimy, dimz;
-    float r,g,b,a;
+    float r, g, b, a;
 
-    public:
-        Leitor();
-        std::vector<FiguraGeometrica*> parse(std::string filename);
+public:
+    Leitor();
+    std::vector<FiguraGeometrica *> parse(std::string filename); // gerar uma lista do que quero desenhar
 
-        int getDimx();
-        int getDimy();
-        int getDimz();
-
+    int getDimx();
+    int getDimy();
+    int getDimz();
 };
 
-#endif
+#endif // LEITOR_H

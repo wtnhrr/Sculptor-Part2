@@ -1,5 +1,1 @@
-#include "FiguraGeometrica.h"
-
-FiguraGeometrica::FiguraGeometrica(){
-    
-}
+#include "figurageometrica.h"

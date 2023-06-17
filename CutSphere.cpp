@@ -1,13 +1,13 @@
-#include "CutSphere.h"
+#include "cutSphere.h"
 
-CutSphere::CutSphere(int xcenter_, int ycenter_, int zcenter_, int radius_){
-    this -> xcenter = xcenter_;
-    this -> ycenter = ycenter_;
-    this -> zcenter = zcenter_;
-    this -> radius   = radius_;
+cutSphere::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
+    this -> xcenter = xcenter;
+    this -> ycenter = ycenter;
+    this -> zcenter = zcenter;
+    this -> radius  = radius;
 }
 
-void CutSphere::draw(Sculptor &sculptor){
+void cutSphere::draw(Sculptor &s){
     for(int x = xcenter - radius; x < xcenter + radius; x++){
         for(int y = ycenter - radius; y < ycenter + radius; y++){
             for(int z = zcenter - radius; z < zcenter + radius; z++){
@@ -16,7 +16,7 @@ void CutSphere::draw(Sculptor &sculptor){
                 ((z-zcenter)/2.0) * ((z-zcenter)/2.0 ) / ((radius/2.0)*(radius/2.0));
 
                 if( distance < 1.0){
-                    sculptor.cutVoxel(x, y, z);
+                    s.cutVoxel(x, y, z);
                 }
             }
         }

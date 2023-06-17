@@ -1,39 +1,35 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <sstream>
 #include "sculptor.h"
-#include "Leitor.h"
+#include "leitor.h"
+#include "putSphere.h"
 #include "figurageometrica.h"
 
+int main(){
+    Sculptor *wf;
 
+    Leitor parser;
 
+    std::vector<FiguraGeometrica *> figs;
 
-using namespace std;
+    figs = parser.parse("entrada.txt");
 
-int main()
-{
-   Sculptor *wf;
+    wf = new Sculptor(parser.getDimx(), parser.getDimy(), parser.getDimz());
 
-   Leitor parser;
+    for (size_t i = 0; i < figs.size(); i++){
+        std::cout << "... ... ... .../n";
+        figs[i]->draw(*wf);
+    }
 
-   vector<FiguraGeometrica*>figs;
+    wf->writeOFF((char*) "zariman.off");
 
-   figs = parser.parse("C:/Users/queir/OneDrive/Documentos/Programação Avançada/PA - c++ - Part 2/test.txt");
+    for (size_t i = 0; i < figs.size(); i++){
+        delete figs[i];
+    }
 
-   wf = new Sculptor(parser.getDimx(), parser.getDimy(), parser.getDimz());
+    delete wf;
 
-   for(size_t i=0;i<figs.size();i++){
-       cout << "draw/n";
-       figs[i]->draw(*wf);
-   }
-
-   wf->writeOFF((char*) "zariman.off");
-   
-   for(size_t i=0;i<figs.size();i++){
-       delete figs[i];
-   }
-
-   delete wf;
-   
-   return 0;
+    return 0;
 }

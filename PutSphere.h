@@ -1,17 +1,16 @@
-#ifndef PUT_SPHERE_H
-  #define PUT_SPHERE_H
+#ifndef PUTSPHERE_H
+#define PUTSPHERE_H
 
- #include "FiguraGeometrica.h"
+#include "figurageometrica.h"
+#include "sculptor.h"
 
-class PutSphere:public FiguraGeometrica{
-    int xcenter, ycenter, zcenter, radius;
-    
-    public:
+class putSphere : public FiguraGeometrica{
+  int xcenter, ycenter, zcenter, radius;
 
-        PutSphere(int xcenter_, int ycenter_, int zcenter_, int radius_, float r_, float g_, float b_, float a_);
-        ~PutSphere(){};
-
-        void draw(Sculptor &sculptor);
+public:
+  putSphere(int xcenter, int ycenter, int zcenter, int radius, float r, float g, float b, float a);
+  void draw(Sculptor &s);
+  ~putSphere(){};
 };
 
-#endif // PUT_SPHERE_H
+#endif // PUTSPHERE_H

@@ -1,17 +1,15 @@
-#ifndef PUT_ELLIPSOID_H
-#define PUT_ELLIPSOID_H
+#ifndef PUTELLIPSOID_H
+#define PUTELLIPSOID_H
 
-#include "FiguraGeometrica.h"
+#include "figurageometrica.h"
 
+class putEllipsoid : public FiguraGeometrica{
+  int xcenter, ycenter, zcenter, rx, ry, rz;
 
-class PutEllipsoid:public FiguraGeometrica{
-    int xcenter, ycenter, zcenter, rx, ry, rz;
+public:
+  putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz, float r, float g, float b, float a);
+  void draw(Sculptor &sculptor);
+  ~putEllipsoid(){};
+};
 
-    public:
-        PutEllipsoid(int xcenter_, int ycenter_, int zcenter_, int rx_, int ry_, int rz_, float r_, float g_, float b_, float a_);
-        ~PutEllipsoid(){};
-
-        void draw(Sculptor &sculptor);
-  };
-
-#endif // PUT_ELLIPSOID_H
+#endif // PUTELLIPSOID_H
