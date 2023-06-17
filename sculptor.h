@@ -12,7 +12,6 @@ protected:
 
 public:
     Sculptor(int _nx, int _ny, int _nz);
-
     ~Sculptor();
 
     void setColor(float r, float g, float b, float a);

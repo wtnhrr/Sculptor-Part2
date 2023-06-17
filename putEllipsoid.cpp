@@ -11,10 +11,6 @@ putEllipsoid::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry
     this -> r  = r;  this -> g  = g ; this -> b = b; this -> a = a;
 }
 
-putEllipsoid::~putEllipsoid(){
-
-}
-
 void putEllipsoid::draw(Sculptor &s){
   s.setColor(r, g, b, a);
   

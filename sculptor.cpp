@@ -8,9 +8,9 @@
 
 // Constructor
 Sculptor :: Sculptor(int _nx, int _ny, int _nz){
-    this->nx = _nx;
-    this->ny = _ny;
-    this->nz = _nz;
+    nx = _nx;
+    ny = _ny;
+    nz = _nz;
     r = g = b = a = 0.5;
 
     // Alocação Matriz 3D

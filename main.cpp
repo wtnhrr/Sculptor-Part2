@@ -19,10 +19,9 @@ int main(){
     wf = new Sculptor(parser.getDimx(), parser.getDimy(), parser.getDimz());
 
     for (size_t i = 0; i < figs.size(); i++){
-        std::cout << "... ... ... .../n";
         figs[i]->draw(*wf);
     }
-
+    
     wf->writeOFF((char*) "zariman.off");
 
     for (size_t i = 0; i < figs.size(); i++){

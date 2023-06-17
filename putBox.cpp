@@ -8,10 +8,6 @@ putBox::putBox(int x0, int x1, int y0, int y1, int z0, int z1, float r, float g,
     this -> r = r;  this -> g  = g ; this -> b = b; this -> a = a;
 }
 
-putBox::~putBox(){
-    
-}
-
 void putBox::draw(Sculptor &s){
     s.setColor(r, g, b, a);
     for(int i = x0; i < x1; i++){
